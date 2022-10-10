@@ -1,0 +1,15 @@
+<div class="card shadow-sm">
+    <h3 class="card-text">{{productItem.title}}</h3>
+    <img class="bd-placeholder-img card-img-top" width="100%" height="225" src={{productItem.thumbnail}}/>
+
+    <div class="card-body">
+      <p class="card-text">{{productItem.description}}</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>
+        </div>
+        <strong>{{productItem.price}} kn</strong>
+        <small class="text-muted">{{productItem.rating}}</small>
+      </div>
+    </div>
+</div>
