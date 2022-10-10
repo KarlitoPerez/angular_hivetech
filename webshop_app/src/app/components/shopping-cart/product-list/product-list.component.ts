@@ -10,17 +10,19 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  productList: Product [] = []
+  response: string | Array<any> = []; 
+  productList: Product[] = this.response[0];
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    console.log()
     this.productService.getProducts().subscribe((products: Product[]) =>{
-      console.log('products', products[3])
+      console.log('products', products)
       this.productList = products;
-      console.log(this.productList[3])
+      console.log(this.productList)
     })
-    //fetch('https://dummyjson.com/products').then(res => res.json()).then(console.log); 
+     
     
   }
 

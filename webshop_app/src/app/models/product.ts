@@ -9,9 +9,4 @@ export interface Product {
     brand: string;
     category: string;
     thumbnail: string;
-    
-
-
-
-    
 }
