@@ -24,4 +24,6 @@ export class ProductListComponent implements OnInit {
     
   }
 
+  p: number = 1;
+  
 }
