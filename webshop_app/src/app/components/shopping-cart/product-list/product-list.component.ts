@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { Response } from 'src/app/models/response';
 
 import { ProductService } from 'src/app/services/product.service';
 
@@ -10,22 +11,41 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  response: string | Array<any> = []; 
-  productList: Product[] = this.response[0];
+  
+  productList: Product[] = [] ; // enteering array of products
+  emptyList: string[] = []
 
   constructor(private productService: ProductService) { }
 
-  ngOnInit(): void {
-    console.log()
-    this.productService.getProducts().subscribe((products: Product[]) =>{
-      console.log('products', products)
-      this.productList = products;
-      console.log(this.productList)
-    })
-     
-    
-  }
+  @Output() parentFunction: EventEmitter<any> = new EventEmitter()
 
+  ngOnInit(): void {
+    
+    this.productService.getProducts().subscribe((responseA: Response) =>{
+      this.productList = responseA.products;
+    })
+  }
+  
+  /*this.productList = responseA.products.filter(res => {
+    return res.title.toLocaleLowerCase().match(this.searchValue.toLocaleLowerCase());
+  });*/
+
+  
+  
+
+  /*onSearchTextChanged(response: Product){
+    if (this.enteredSearchValue !== '') {
+      this.productList = this.productList.filter(res => {
+        return res.title.toLowerCase().match(this.enteredSearchValue.toLowerCase());
+      });
+    } else if (this.enteredSearchValue === '') {
+      this.ngOnInit();
+    }
+  }*/
+  
+  
   p: number = 1;
   
 }
+
+

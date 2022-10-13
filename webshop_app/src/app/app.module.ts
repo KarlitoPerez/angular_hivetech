@@ -23,10 +23,11 @@ import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { FilterComponent } from './components/shopping-cart/filter/filter.component';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ProductDetailsComponent } from './components/shared/details/product-details/product-details.component';
 
 
 @NgModule({
-  declarations: [AppComponent, SearchFilterPipe, HeaderComponent, FooterComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, CartComponent, FilterComponent, ProductItemComponent],
+  declarations: [AppComponent, SearchFilterPipe, HeaderComponent, FooterComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, CartComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
