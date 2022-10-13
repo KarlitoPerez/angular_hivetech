@@ -19,9 +19,11 @@ export class NavComponent implements OnInit {
   productList: Product[] = [];
   enteredSearchValue: string = '';
   searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+
+  @Output() 
   
   searchProduct(){
-    alert("halo halo")
+    this.searchTextChanged.emit(this.enteredSearchValue)
   }
   
   Search(){
