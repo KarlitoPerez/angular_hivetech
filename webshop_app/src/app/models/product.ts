@@ -8,5 +8,6 @@ export interface Product {
     stock: number;
     brand: string;
     category: string;
-    thumbnail: Array<string>;
+    thumbnail: string;
+    images: Array<string>;
 }

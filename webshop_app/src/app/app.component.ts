@@ -9,7 +9,10 @@ import { ProductListComponent } from './components/shopping-cart/product-list/pr
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  [x: string]: any;
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
+  
 
   constructor(private http: HttpClient) {}
 
@@ -17,20 +20,7 @@ export class AppComponent {
   
   }
 
-  @Input() 
+   
 
-  _searchText: string = '';
-  filteredProducts!: Product[];
-
-  get filterProducts(){
-    return this._searchText;
-  }
-
-  set filterProducts(value: string){
-    this._searchText = value;
-  }
-
-  onSearchTextEntered(searchValue: string){
-    
-  }
+  
 }
