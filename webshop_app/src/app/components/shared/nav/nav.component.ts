@@ -1,8 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/models/product';
-import { Response } from 'src/app/models/response';
 import { ProductService } from 'src/app/services/product.service';
-import { ProductListComponent } from '../../shopping-cart/product-list/product-list.component';
 
 @Component({
   selector: 'app-nav',
@@ -21,19 +19,14 @@ export class NavComponent implements OnInit {
   
 
   @Output()searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Output()allProducts: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   searchProduct(){
     this.searchTextChanged.emit(this.enteredSearchValue)
   }
-  
-  Search(){
-    if(this.enteredSearchValue == ''){
-      this.ngOnInit();
-    }else{
-      this.productList = this.productList.filter((res: { title: string; }) =>{
-        return res.title.toLocaleLowerCase().match(this.enteredSearchValue.toLocaleLowerCase())
-      })
-    }
-  }
+   allProductsButton(){
+    this.allProducts.emit(true)
+   }
+ 
   
 }

@@ -8,17 +8,18 @@
       <div class="collapse navbar-collapse" id="navbarsExample02">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">All products</a>
+            <button class="nav-link bg-dark active" aria-current="page" (click)="allProductsButton()">All products</button>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#"></a>
-          </li>
+          
         </ul>
         
         <form role="search">
-          <input class="form-control" type="text" placeholder="Search" aria-label="Search" [(ngModel)]="enteredSearchValue" name = "enteredSearchValue" (input)="searchProduct()">
+          <input class="form-control" valuetype="text" placeholder="Search" aria-label="Search" [(ngModel)]="enteredSearchValue" name = "enteredSearchValue">
         </form>
+        <button type="submit" (click)="searchProduct()">Search</button>
       </div>
-      <button>Search</button>
+      
     </div>
   </nav>
+
+ 

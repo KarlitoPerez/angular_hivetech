@@ -21,25 +21,15 @@ export class ProductService {
     return this.http.get<Response>(`${this.apiUrl}/products`)
   }
 
-  getProductsCategory(): Observable<Product>{
-    return this.http.get<Product>(`${this.apiUrl}/products/category/`)
-  }
-
   getProductById(id: number): Observable<Product>{
     return this.http.get<Product>(`${this.apiUrl}/products/` + id)
   }
 
-  /*searchFilter() {
-     
-    if (this.address !== '') {
-      this.productist = this.homes.filter(res => {
-        return res.address.toLowerCase().match(this.address.toLowerCase());
-      });
-    } else if (this.address === '') {
-      this.ngOnInit();
-    }
-  }*/
+  getProductBySearch(value: string): Observable<Response>{
+    return this.http.get<Response>(`${this.apiUrl}/products/search?q=` + value)
+  }
 
-  
-
+  getProductByCategory(value: string): Observable<Response>{
+    return this.http.get<Response>(`${this.apiUrl}/products/category/` + value)
+  }
 }
