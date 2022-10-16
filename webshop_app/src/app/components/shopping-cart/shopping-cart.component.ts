@@ -17,7 +17,7 @@ export class ShoppingCartComponent implements OnInit {
     this.getAll()
   }
   productList: Product[] = [];
-  _searchText: string = '';
+  p:number = 1;
 
   getAll(){
     this.productService.getProducts().subscribe((responseA: Response) =>{
@@ -28,6 +28,7 @@ export class ShoppingCartComponent implements OnInit {
     if (response !== '') {
       this.productService.getProductBySearch(response).subscribe((responseA: Response) =>{
         this.productList = responseA.products;
+        this.p = 1;
       })}else if (response === '') {
       this.ngOnInit();
     }

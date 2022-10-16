@@ -1,6 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 
 
@@ -14,19 +12,14 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
   @Input() productList: Product[] = [];
+  
 
   ngOnInit(): void {
 
   }
 
-  POSTS: any;
-  page: number = 1;
-  count: number = 0;
-  tableSize:number = 6;
-
-  onTableDataChange(event:any) {
-    this.page = event;
-  }
+  p:number = 1;
+  
 }
 
 

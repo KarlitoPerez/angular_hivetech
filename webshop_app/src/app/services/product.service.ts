@@ -1,10 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { Product } from '../models/product';
 import { Response } from '../models/response';
-import { ProductListComponent } from '../components/shopping-cart/product-list/product-list.component';
 
 const apiUrl = 'https://dummyjson.com';
 

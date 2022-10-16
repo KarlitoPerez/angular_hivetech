@@ -12,22 +12,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { SearchFilterPipe } from './search-filter.pipe';
-import { HeaderComponent } from './components/shared/header/header.component';
-import { FooterComponent } from './components/shared/footer/footer.component';
 import { NavComponent } from './components/shared/nav/nav.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
-import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { FilterComponent } from './components/shopping-cart/filter/filter.component';
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductDetailsComponent } from './components/shared/details/product-details/product-details.component';
 
 
+
 @NgModule({
-  declarations: [AppComponent, SearchFilterPipe, HeaderComponent, FooterComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, CartComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent],
+  declarations: [AppComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,7 +36,6 @@ import { ProductDetailsComponent } from './components/shared/details/product-det
     MatInputModule,
     MatIconModule,
     MatSelectModule,
-    Ng2SearchPipeModule,
     NgxPaginationModule
   ],
   providers: [],
