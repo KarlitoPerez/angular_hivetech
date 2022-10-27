@@ -1,11 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Response } from 'src/app/models/response';
 import { ProductService } from 'src/app/services/product.service';
-import { Router } from '@angular/router';
-import { outputAst } from '@angular/compiler';
 
 @Component({
   selector: 'app-shopping-cart',
