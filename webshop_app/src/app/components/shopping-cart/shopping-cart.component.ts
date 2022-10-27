@@ -14,10 +14,16 @@ import { outputAst } from '@angular/compiler';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private http: HttpClient, private productService: ProductService, private route: Router) { }
+  constructor(private http: HttpClient, private productService: ProductService, private route: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getAll()
+    this.activateRoute.url.subscribe((url)=> {
+      if(url[0].path === 'all'){
+        this.getAll();
+      } else {
+        this.onButtonClick(url[0].path);
+      }
+    });
   }
   productList: Product[] = [];
   p:number = 1;
@@ -26,7 +32,7 @@ export class ShoppingCartComponent implements OnInit {
   @Output()allProducts: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   getAll(){
-    this.route.navigate(['all'])
+    this.route.navigateByUrl('all')
     this.productService.getProducts().subscribe((responseA: Response) =>{
       this.productList = responseA.products;
     })
@@ -42,43 +48,10 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   onButtonClick(response: string){
-    if(response==='smartphones'){
-      this.catResponse = response
-      this.route.navigate(['/smartphones'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }else if(response==='laptops'){
-      this.catResponse = response
-      this.route.navigate(['/laptops'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }else if(response==='fragrances'){
-      this.catResponse = response
-      this.route.navigate(['/fragrances'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }else if(response==='skincare'){
-      this.catResponse = response
-      this.route.navigate(['/skincare'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }else if(response==='groceries'){
-      this.catResponse = response
-      this.route.navigate(['/groceries'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }else if(response==='home-decoration'){
-      this.catResponse = response
-      this.route.navigate(['/home-decoration'])
-      this.productService.getProductByCategory(response).subscribe((responseA: Response) =>{
-        this.productList = responseA.products;
-      }) 
-    }
+    this.route.navigateByUrl('/'+ response);
+    this.productService.getProductByCategory(response).subscribe((responseA:Response) =>{
+      this.productList = responseA.products;
+    })
   }
 
 }
