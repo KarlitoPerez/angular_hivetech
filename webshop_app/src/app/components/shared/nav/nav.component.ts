@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -14,19 +13,12 @@ export class NavComponent implements OnInit {
     
   }
 
-  productList: Product[] = [];
   enteredSearchValue: string = '';
   
-
   @Output()searchTextChanged: EventEmitter<string> = new EventEmitter<string>();
-  @Output()allProducts: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   searchProduct(){
     this.searchTextChanged.emit(this.enteredSearchValue)
   }
-  allProductsButton(){
-    this.allProducts.emit(true)
-  }
  
-  
 }

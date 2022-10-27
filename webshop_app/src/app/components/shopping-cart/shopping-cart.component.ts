@@ -16,17 +16,16 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit(): void {
     this.activateRoute.url.subscribe((url)=> {
-      if(url[0].path === 'all'){
+      if(url.length === 0 || url[0].path === 'all'){
         this.getAll();
       } else {
-        this.onButtonClick(url[0].path);
+        this.searchByCategory(url[0].path);
       }
     });
   }
+  
   productList: Product[] = [];
-  p:number = 1;
-  catResponse: string = '';
-
+  
   @Output()allProducts: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   getAll(){
@@ -39,15 +38,13 @@ export class ShoppingCartComponent implements OnInit {
     if (response !== '') {
       this.productService.getProductBySearch(response).subscribe((responseA: Response) =>{
         this.productList = responseA.products;
-        this.p = 1;
       })}else if (response === '') {
       this.ngOnInit();
     }
   }
 
-  onButtonClick(response: string){
-    this.route.navigateByUrl('/'+ response);
-    this.productService.getProductByCategory(response).subscribe((responseA:Response) =>{
+  searchByCategory(categoryName: string){
+    this.productService.getProductByCategory(categoryName).subscribe((responseA:Response) =>{
       this.productList = responseA.products;
     })
   }
