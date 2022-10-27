@@ -19,11 +19,12 @@ import { FilterComponent } from './components/shopping-cart/filter/filter.compon
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductDetailsComponent } from './components/shared/details/product-details/product-details.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent],
+  declarations: [AppComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent, ErrorComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
