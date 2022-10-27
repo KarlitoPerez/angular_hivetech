@@ -1,5 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product';
 import { Response } from 'src/app/models/response';
@@ -12,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor(private http: HttpClient, private productService: ProductService, private route: Router, private activateRoute: ActivatedRoute) { }
+  constructor( private productService: ProductService, private route: Router, private activateRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activateRoute.url.subscribe((url)=> {
@@ -26,7 +25,6 @@ export class ShoppingCartComponent implements OnInit {
   
   productList: Product[] = [];
   
-  @Output()allProducts: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   getAll(){
     this.route.navigateByUrl('all')
