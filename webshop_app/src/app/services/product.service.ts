@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 import { Response } from '../models/response';
 
-const apiUrl = 'https://dummyjson.com';
+
 
 @Injectable({
   providedIn: 'root'

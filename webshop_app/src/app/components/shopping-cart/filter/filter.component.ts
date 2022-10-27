@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class FilterComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private route: Router) { }
 
   @Output() categoryChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -18,6 +19,8 @@ export class FilterComponent implements OnInit {
   }
   
   categoryClick(val: string){
+    
     this.categoryChange.emit(val)
+    
   }
 }

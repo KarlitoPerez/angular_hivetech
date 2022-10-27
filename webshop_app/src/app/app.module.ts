@@ -19,11 +19,18 @@ import { FilterComponent } from './components/shopping-cart/filter/filter.compon
 import { ProductItemComponent } from './components/shopping-cart/product-list/product-item/product-item.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductDetailsComponent } from './components/shared/details/product-details/product-details.component';
+import { ErrorComponent } from './error/error.component';
+import { SmartphonesComponent } from './components/shopping-cart/smartphones/smartphones.component';
+import { LaptopsComponent } from './components/shopping-cart/laptops/laptops.component';
+import { FragrancesComponent } from './components/shopping-cart/fragrances/fragrances.component';
+import { SkincareComponent } from './components/shopping-cart/skincare/skincare.component';
+import { GroceriesComponent } from './components/shopping-cart/groceries/groceries.component';
+import { HomeDecorationComponent } from './components/shopping-cart/home-decoration/home-decoration.component';
 
 
 
 @NgModule({
-  declarations: [AppComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent],
+  declarations: [AppComponent, NavComponent, ShoppingCartComponent, FilterComponent, ProductListComponent, FilterComponent, ProductItemComponent, ProductDetailsComponent, ErrorComponent, SmartphonesComponent, LaptopsComponent, FragrancesComponent, SkincareComponent, GroceriesComponent, HomeDecorationComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

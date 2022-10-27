@@ -24,9 +24,9 @@ export class NavComponent implements OnInit {
   searchProduct(){
     this.searchTextChanged.emit(this.enteredSearchValue)
   }
-   allProductsButton(){
+  allProductsButton(){
     this.allProducts.emit(true)
-   }
+  }
  
   
 }

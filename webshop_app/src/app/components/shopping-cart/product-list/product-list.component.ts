@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -9,13 +10,13 @@ import { Product } from 'src/app/models/product';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService: ProductService ) { }
 
   @Input() productList: Product[] = [];
+  @Input() catResponse: string = '';
   
 
   ngOnInit(): void {
-
   }
 
   p:number = 1;
